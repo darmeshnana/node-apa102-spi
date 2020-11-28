@@ -15,6 +15,10 @@ function Apa102spi (stringLength, clockDivider) {
   rpio.spiSetClockDivider(clockDivider)
 }
 
+Apa102spi.prototype.terminate = function () {
+  rpio.exit()
+}
+
 Apa102spi.prototype.sendLeds = function () {
   rpio.spiWrite(this.writeBuffer, this.bufferLength)
 }
